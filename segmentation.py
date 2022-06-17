@@ -12,7 +12,7 @@ session = InteractiveSession(config=config)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("input", type=str, help="An image file to segment. If a directory is passed, it segements all images in the directory.")
-parser.add_argument("net", type=int, choices=[0, 1, 2], help="The model to use. 0 - QUANTA SE, 1 - ST BSE, 2, - ST SE")
+parser.add_argument("net", type=int, choices=['unet_QUANTA_SE', 'unet_ST_BSE', 'unet_ST_SE'], help="The neural network (trained model) to use.")
 parser.add_argument("-netpath", type=str, default='', help="Directory with saved neural networks. If not passed, it works with the current working directory.")
 args = parser.parse_args()
 
