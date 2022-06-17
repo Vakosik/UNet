@@ -3,6 +3,12 @@ import cv2
 from tensorflow.keras.models import load_model
 import numpy as np
 import os
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("input", type=str, help="An image file to segment. If a directory is passed, it segements all images in the directory.")
