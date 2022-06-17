@@ -19,7 +19,7 @@ At the beginning of the line, you should now see (UNet).
 
 The program for segmentation has three parameters. Two of them are mandatory to specify:
 i) input: An image file to segment. If a directory is sent, it segments all images in the directory. A directory must be written with / at the end.
-ii) net: The model to use, choices are 'unet_QUANTA_SE', 'unet_ST_BSE', 'unet_ST_SE'.
+ii) net: The model to use, choices are unet_QUANTA_SE, unet_ST_BSE, unet_ST_SE.
 
 The last parameter is optional:
 iii) -netpath: The directory (must be written with / at the end) with saved neural networks. If not specified, it works with the current working directory.
@@ -29,11 +29,11 @@ The segmentation is run by writing python segmentation.py (or full path to the f
 (optinally a space, -netpath and specifying the last parameter parametr). 
 
 Examples:
-python segmentation.py "C:/segmentation/QUANTA SE/input/S3o spodek 1 orig.tif" 'unet_QUANTA_SE'
-python segmentation.py "C:/segmentation/QUANTA SE/input/S3o spodek 1 orig.tif" 'unet_QUANTA_SE' -netpath "C:/segmentation/models/"
-python segmentation.py "C:/segmentation/QUANTA SE/input/" 'unet_QUANTA_SE' -netpath "C:/segmentation/models/"
-python segmentation.py "C:/segmentation/ST BSE/input/" 'unet_ST_BSE' -netpath "C:/segmentation/models/"
-python segmentation.py "C:/segmentation/ST SE/input/" 'unet_ST_SE' -netpath "C:/segmentation/models/"
+python segmentation.py "C:/segmentation/QUANTA SE/input/S3o spodek 1 orig.tif" unet_QUANTA_SE
+python segmentation.py "C:/segmentation/QUANTA SE/input/S3o spodek 1 orig.tif" unet_QUANTA_SE -netpath "C:/segmentation/models/"
+python segmentation.py "C:/segmentation/QUANTA SE/input/" unet_QUANTA_SE -netpath "C:/segmentation/models/"
+python segmentation.py "C:/segmentation/ST BSE/input/" unet_ST_BSE -netpath "C:/segmentation/models/"
+python segmentation.py "C:/segmentation/ST SE/input/" unet_ST_SE -netpath "C:/segmentation/models/"
 
 
 The output is saved to the same directory where input is stored. 
