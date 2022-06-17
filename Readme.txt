@@ -13,9 +13,9 @@ ____________________________________________________
 
 First, it's necesarry to activate the enviroment installed in the previous step. You can do that by
 
-conda activate unet_env
+conda activate UNet
 
-At the beginning of the line, you should now see (unet_env).
+At the beginning of the line, you should now see (UNet).
 
 The program for segmentation has three parameters. Two of them are mandatory to specify:
 i) input: An image file to segment. If a directory is sent, it segments all images in the directory. A directory must be written with / at the end.
