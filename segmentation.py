@@ -30,9 +30,9 @@ def segment(path, net, netpath):
         img = cv2.imread(path, flags=cv2.IMREAD_GRAYSCALE)
         img = np.atleast_3d(img)  # we need dim (128,128,1) not just (128,128)
         img = np.expand_dims(img, axis=0)
-        if net == 0:
+        if net == 'unet_QUANTA_SE':
             model_path = netpath+'unet_QUANTA_SE.h5'
-        elif net == 1:
+        elif net == 'unet_ST_BSE':
             model_path = netpath+'unet_ST_BSE.h5'
         else:
             model_path = netpath+'unet_ST_SE.h5'
@@ -51,9 +51,9 @@ def segment(path, net, netpath):
         if len(file_names) == 0:
             print('No tif images in the input directory')
             return
-        if net == 0:
+        if net == 'unet_QUANTA_SE':
             model_path = netpath + 'unet_QUANTA_SE.h5'
-        elif net == 1:
+        elif net == 'unet_ST_BSE':
             model_path = netpath + 'unet_ST_BSE.h5'
         else:
             model_path = netpath + 'unet_ST_SE.h5'
