@@ -90,7 +90,7 @@ def main(model_path, data_path):
     batch_size = 6
 
     history = model.fit(generate(X_trn, y_trn, size_train, X_trn_path, y_trn_path, batch_size),
-                                  steps_per_epoch=size_train / batch_size, epochs=150, verbose=1,
+                                  steps_per_epoch=size_train / batch_size, epochs=200, verbose=1,
                                   callbacks=callbacks,
                                   validation_data=generate(X_val, y_val, size_val, X_val_path, y_val_path, 1),
                                   validation_steps=size_val / 1)
