@@ -8,7 +8,7 @@ conda env create --file unet_env.yml
 
 This is a one-time action only. If you use the same computer, next time go straight to the step 2).
 
-2) Running the code
+2) Running the segmentation code
 ____________________________________________________
 
 First, it's necesarry to activate the enviroment installed in the previous step. You can do that by
@@ -37,3 +37,22 @@ python segmentation.py "C:/segmentation/ST SE/input/" unet_ST_SE -netpath "C:/se
 
 
 The output is saved to the same directory where input is stored. 
+
+
+3) Running the automatic_train code
+____________________________________________________
+
+First, it's necesarry to activate the enviroment installed in the previous step. You can do that by
+
+conda activate UNet
+
+At the beginning of the line, you should now see (UNet).
+
+The program for segmentation has two parameters, both mandatory:
+i) model: A path to a model that you want to fine-tune (the code will load this model and start adjusting it to your new data). Don't forget about .h5 suffix.
+ii) data: A directory with data. The directory must contain two folders train and test. Both these folders must contain two subfolders input and target. If the data folder doesn't satisfy this, the code will call an error.
+
+The training is run by writing python automatic_train.py (or full path to the file), a space, specifying the first parametr, a space, specifying the second parametr.
+
+Example:
+python automatic.py "C:/UNet/models/unet_QUANTA_SE2.h5" "C:/UNet/data/"
