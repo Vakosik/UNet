@@ -48,7 +48,7 @@ conda activate UNet
 
 At the beginning of the line, you should now see (UNet).
 
-The program for segmentation has two parameters, both mandatory:
+The program for automatic training has two parameters, both mandatory:
 i) model: A path to a model that you want to fine-tune (the code will load this model and start adjusting it to your new data). Don't forget about .h5 suffix.
 ii) data: A directory with data. The directory must contain two folders train and test. Both these folders must contain two subfolders input and target. If the data folder doesn't satisfy this, the code will call an error. There is an example of such folder uploaded on this GitHub repository, you can try to run the code on that.
 
