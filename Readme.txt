@@ -57,4 +57,4 @@ The training is run by writing python automatic_train.py (or full path to the fi
 Example:
 python automatic.py "C:/UNet/models/unet_QUANTA_SE2.h5" "C:/UNet/data/"
 
-The output (.h5 file) is saved to the same directory where the load model is stored. 
+The output (new_model.h5) is saved to the same directory where the load model is stored. 
