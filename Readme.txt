@@ -55,6 +55,6 @@ ii) data: A directory with data. The directory must contain two folders train an
 The training is run by writing python automatic_train.py (or full path to the file), a space, specifying the first parametr, a space, specifying the second parametr.
 
 Example:
-python automatic.py "C:/UNet/models/unet_QUANTA_SE2.h5" "C:/UNet/data/"
+python automatic_train.py "C:/UNet/models/unet_QUANTA_SE2.h5" "C:/UNet/data/"
 
 The output (new_model.h5) is saved to the same directory where the load model is stored. 
