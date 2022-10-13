@@ -65,7 +65,7 @@ def generate(X, y, data_len, pathx, pathy, batchsize=1):
 
 
 def main(model_path, data_path):
-    os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+    # os.environ["CUDA_VISIBLE_DEVICES"] = "1"
     if model_path[-3:] != '.h5':
         print('Error: The path to a model does not end with .h5')
         return
