@@ -21,13 +21,11 @@ def get_filenames(path):
     return names
 
 
-def get_dataset(image_file, path):
+def get_dataset(image_file, path, random_height, random_width):
     images = []
-    if path.endswith('input/'):
-        global random_height
-        global random_width
-        random_height = []
-        random_width = []
+#    if path.endswith('input/'):
+#        random_height = []
+#        random_width = []
     for j, name in enumerate(image_file):
         file_name = path + name
         img = cv2.imread(file_name, flags=cv2.IMREAD_GRAYSCALE)
@@ -43,8 +41,8 @@ def get_dataset(image_file, path):
         # print(random_height[j], random_width[j], name)
     if path.endswith('train/input/') or path.endswith('train/target/'):
         for j in range(len(images)):
-            images[j] = images[j][random_height[j]:random_height[j] + 512, random_width[j]:random_width[j] + 512, :]
-    return images
+            images[j] = images[j][random_height[j]:(random_height[j] + 512), random_width[j]:(random_width[j] + 512), :]
+    return np.array(images), random_height, random_width
 
 
 def generate(X, y, data_len, pathx, pathy, batchsize=1):
@@ -58,9 +56,9 @@ def generate(X, y, data_len, pathx, pathy, batchsize=1):
         cuts = [(b, min(b + batchsize, data_len)) for b in range(0, data_len, batchsize)]
         for start, end in cuts:
             inputs = X[start:end].copy()
-            inputs = np.array(get_dataset(inputs, pathx))
+            inputs, h, w = get_dataset(inputs, pathx, [], [])
             targets = y[start:end].copy()
-            targets = np.array(get_dataset(targets, pathy))
+            targets, h, w = get_dataset(targets, pathy, h, w)
             yield (inputs, targets)
 
 
@@ -92,7 +90,7 @@ def main(model_path, data_path):
     model.compile(optimizer=Adam(), loss='binary_crossentropy', metrics=['accuracy'])
 
     # Show architecture of the model:
-    # model.summary()
+    #model.summary()
 
     # Saving the model that behaves better in validation set:
     callbacks = [
