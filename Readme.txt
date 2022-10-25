@@ -57,4 +57,5 @@ The training is run by writing python automatic_train.py (or full path to the fi
 Example:
 python automatic_train.py "C:/UNet/models/unet_QUANTA_SE2.h5" "C:/UNet/data/"
 
-The output (new_model.h5) is saved to the same directory where the load model is stored. 
+The output (new_model.h5) is saved to the same directory where the load model is stored.
+The code prints the accuracy of the saved model on the validation (test) set. If you are not satisfied with the result, you can try to run the code again several times. The algorithm is affected by random numbers, therefore, it produces different results in every launch.
