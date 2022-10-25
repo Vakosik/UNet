@@ -1,4 +1,4 @@
-name: UNet3
+name: UNet
 channels:
   - conda-forge
   - defaults
@@ -19,4 +19,4 @@ dependencies:
     - tensorflow==2.9
     - tensorflow-gpu==2.9
     - numpy==1.22
-prefix: /home/kosik/.conda/envs/UNet3
+prefix: /home/kosik/.conda/envs/UNet
