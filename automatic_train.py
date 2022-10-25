@@ -112,6 +112,8 @@ def main(model_path, data_path):
     save_model_path = os.path.dirname(model_path)
     save_model_path = save_model_path + '/new_model.h5'
     model.save(save_model_path)
+    print('Model saved at', save_model_path)
+    print('Accuracy of the model on the validation set is', round(max(history.history['val_accuracy']), 3) * 100, '%' )
 
 
 if __name__ == '__main__':
